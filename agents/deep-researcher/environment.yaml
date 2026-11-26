@@ -1,0 +1,23 @@
+# Cloud sandbox for the deep researcher.
+#
+# `limited` networking is deny-by-default. It also limits the agent's
+# web_search / web_fetch tools: they only return pages from the hosts below.
+# Add the sites your questions need, then run `ant apply` again.
+#
+# Alternative: `networking: {type: unrestricted}` lets the agent read any site,
+# but it also gives the whole sandbox full internet access. Only switch if you
+# keep secrets and sensitive files out of the sessions.
+name: deep-researcher-env
+config:
+  type: cloud
+  networking:
+    type: limited
+    allow_package_managers: true
+    allowed_hosts:
+      - en.wikipedia.org
+      - de.wikipedia.org
+      - arxiv.org
+      - github.com
+      - docs.python.org
+      - platform.claude.com
+      - www.anthropic.com
